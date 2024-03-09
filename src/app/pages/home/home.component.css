@@ -1,0 +1,24 @@
+.container {
+  margin-top: 100px;
+  color: white;
+}
+
+.nav-link {
+  font-size: 25px;
+}
+
+.nav-link:hover {
+  color: var(--secondary-text-color);
+}
+
+.line {
+  color: var(--secondary-text-color);
+}
+
+.text-primary {
+  color: white !important;
+}
+
+.nga-card-step {
+  border: 3px solid var(--primary-color);
+}

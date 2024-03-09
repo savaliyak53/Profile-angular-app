@@ -1,0 +1,49 @@
+.imgdiv {
+  border-bottom: 2px solid white;
+  width: max-content;
+  text-align: center;
+}
+
+p {
+  font-size: 16px;
+}
+
+.nga-btn-social {
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  padding: 0;
+  margin: 5px;
+  overflow: hidden;
+  vertical-align: middle;
+  cursor: pointer;
+  border-radius: 50%;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  width: 47px;
+  height: 47px;
+}
+
+.nga-btn-social i {
+  font-size: 1.25rem;
+  line-height: 47px;
+}
+
+.nga-btn-social i {
+  display: inline-block;
+  width: inherit;
+  color: white;
+  text-align: center;
+}
+
+.nga-btn-linkedin {
+  background-color: #0082ca;
+}
+
+.nga-btn-github {
+  background-color: #333;
+}
+
+.heading {
+  font-size: 34px;
+}

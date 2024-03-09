@@ -1,0 +1,33 @@
+.card {
+  background-color: transparent;
+}
+
+.about {
+  margin-top: 140px;
+  color: var(--secondary-text-color) !important;
+}
+
+.leftSide,
+.nga-card-about {
+  background-color: var(--primary-color);
+  color: var(--secondary-text-color) !important;
+}
+
+.logoImage {
+  height: 57px;
+  width: 226px;
+  margin-top: 10px;
+}
+
+a {
+  font-weight: 500;
+  font-size: 25px;
+}
+
+.bg-white {
+  width: 375px;
+}
+
+.nga-btn-github {
+  margin-right: 6px;
+}
