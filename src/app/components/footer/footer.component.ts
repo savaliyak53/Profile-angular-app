@@ -15,6 +15,5 @@ export class FooterComponent {
     this.sharedService.data$.subscribe((data) => {
       this.footerColor = data;
     });
-    console.log(this.footerColor, 'header');
   }
 }

@@ -1,0 +1,26 @@
+.form-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-top: 50px;
+}
+
+.form-border {
+  border: 1px solid rgb(91, 92, 90);
+  border-radius: 5px;
+}
+
+input.ng-invalid.ng-touched {
+  border: 2px solid rgb(221, 77, 77) !important;
+}
+
+.ng-valid {
+  border: 2px solid rgb(41, 46, 44) !important;
+}
+
+small {
+  color: red;
+  font-weight: lighter;
+}

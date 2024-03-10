@@ -1,1 +1,133 @@
-<p>signup works!</p>
+<div class="bg-white">
+  <h2 class="text-center py-3">Registration form by Template driven !</h2>
+  <div class="container">
+    <div
+      class="form-container"
+      [ngClass]="{ ' form-border ': registrationForm.touched }"
+    >
+      <form
+        class="form"
+        (ngSubmit)="OnFormSubmitted()"
+        #registrationForm="ngForm"
+      >
+        <!-- registrationForm is TFV -->
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="inputFirstName">First Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="inputFirstName"
+              placeholder="First Name"
+              name="firstName"
+              ngModel
+              required
+              #fname="ngModel"
+              [(ngModel)]="firstName"
+            />
+          </div>
+          <div>
+            <span *ngIf="firstName"> You entered: {{ firstName }}</span>
+            <small *ngIf="fname.invalid && fname.touched"
+              >First name is required field</small
+            >
+          </div>
+          <div class="form-group col-md-6">
+            <label for="inputLastName">Last Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="inputLastName"
+              placeholder="Last Name"
+              name="lastName"
+              ngModel
+              required
+              #lname="ngModel"
+              [(ngModel)]="lastName"
+            />
+          </div>
+          <div>
+            <span *ngIf="lastName"> You entered:{{ lastName }}</span>
+            <small *ngIf="lname.invalid && lname.touched"
+              >Last name is required field</small
+            >
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="inputEmail">Email</label>
+            <input
+              type="email"
+              class="form-control"
+              id="inputEmail"
+              placeholder="Email"
+              name="email"
+              ngModel
+              required
+              #email="ngModel"
+              [(ngModel)]="emailAddress"
+            />
+          </div>
+          <div>
+            <span *ngIf="emailAddress"> You entered: {{ emailAddress }}</span>
+            <small *ngIf="email.invalid && email.touched"
+              >Email is required field</small
+            >
+          </div>
+          <div class="form-group col-md-6">
+            <label for="inputPhone">Phone</label>
+            <input
+              type="tel"
+              class="form-control"
+              id="inputPhone"
+              placeholder="Phone"
+              name="phone"
+              ngModel
+              required
+              #phone="ngModel"
+              [(ngModel)]="phoneNumber"
+            />
+          </div>
+          <div>
+            <span *ngIf="phoneNumber"> You entered:{{ phoneNumber }}</span>
+            <small *ngIf="phone.invalid && phone.touched"
+              >Phone is required field</small
+            >
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="inputGender">Gender</label>
+            <select
+              id="inputGender"
+              class="form-control"
+              name="gender"
+              ngModel
+              required
+              #gender="ngModel"
+              [(ngModel)]="sex"
+            >
+              <option selected>Choose...</option>
+              <option>Male</option>
+              <option>Female</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div>
+            <small *ngIf="gender.invalid && gender.touched"
+              >Gender is required field</small
+            >
+          </div>
+        </div>
+
+        <button
+          type="submit"
+          class="btn btn-primary"
+          [disabled]="!registrationForm.valid"
+        >
+          Sign Up
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
