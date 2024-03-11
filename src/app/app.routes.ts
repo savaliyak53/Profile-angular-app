@@ -4,12 +4,14 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { LoginComponent } from './pages/login/login.component';
 import { LandingPageComponent } from './pages/application/landing-page/landing-page.component';
+import { UserComponent } from './pages/user/user.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'user', component: UserComponent },
 
   {
     path: 'landing-page',

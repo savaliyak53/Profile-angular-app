@@ -16,8 +16,12 @@ input.ng-invalid.ng-touched {
   border: 2px solid rgb(221, 77, 77) !important;
 }
 
-.ng-valid {
-  border: 2px solid rgb(41, 46, 44) !important;
+input.ng-valid.ng-touched {
+  border: 2px solid rgb(41, 46, 44);
+}
+
+input.ng-valid.ng-touched.notRequire {
+  border: 2px solid rgb(223, 230, 227);
 }
 
 small {

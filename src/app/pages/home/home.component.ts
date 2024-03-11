@@ -96,5 +96,11 @@ export class HomeComponent {
       description: 'JSON formatter',
       link: '/prettyjson',
     },
+    {
+      icon: 'fa-solid fa-place-of-worship',
+      name: 'Dynamic component',
+      description: 'Using in model',
+      link: '/user',
+    },
   ];
 }

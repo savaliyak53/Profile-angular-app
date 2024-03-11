@@ -19,6 +19,10 @@ export class SignupComponent {
   emailAddress: string = '';
   phoneNumber: string = '';
   sex: string = '';
+  regionName: string = '';
+  cityName: string = '';
+  zip: string = '';
+  Username: string = '';
 
   constructor(private router: Router) {}
 
@@ -32,7 +36,33 @@ export class SignupComponent {
   }
 
   OnFormSubmitted = () => {
-    console.log(this.allFieldsCleared(this.form));
-    console.log(this.form, 'Form');
+    this.form?.reset();
+    this.form?.setValue({
+      ...this.form.value,
+      address: {
+        ...this.form.value['address'],
+        country: 'IND',
+      },
+    });
+  };
+
+  generateUname = () => {
+    const uname =
+      this.firstName.slice(0, this.firstName.length - 2) +
+      this.lastName.slice(0, this.lastName.length - 2) +
+      Math.floor(Math.random() * 100 + 10 - 1);
+
+    this.form?.setValue({
+      ...this.form.value,
+      username: uname,
+      address: {
+        ...this.form.value['address'],
+        country: 'india',
+      },
+    });
+  };
+
+  resetForm = () => {
+    this.form?.resetForm();
   };
 }
