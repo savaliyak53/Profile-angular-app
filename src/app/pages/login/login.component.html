@@ -1,1 +1,63 @@
+<div class="bg-white py-5">
+  <h2 class="text-center py-3">Sign in</h2>
+  <div class="container">
+    <form
+      class="form justify-content-around align-items-center d-flex flex-column"
+      (ngSubmit)="OnloginFormSubmitted()"
+      #loginForm="ngForm"
+    >
+      <div
+        class="form-row justify-content-around align-items-center d-flex flex-column"
+      >
+        <div class="form-group col-md-6">
+          <label for="username"> Username</label>
+          <input
+            type="text"
+            class="form-control"
+            id="username"
+            placeholder="First Name"
+            name="username"
+            ngModel
+            required
+            #Uname="ngModel"
+            [(ngModel)]="userName"
+          />
+          <div>
+            <small *ngIf="Uname.invalid && Uname.touched"
+              >Username is required field</small
+            >
+          </div>
+        </div>
 
+        <div class="form-group col-md-6">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="password"
+            placeholder="Last Name"
+            name="password"
+            ngModel
+            required
+            #passWord="ngModel"
+            [(ngModel)]="password"
+          />
+          <div>
+            <small
+              class="text-start"
+              *ngIf="passWord.invalid && passWord.touched"
+              >Password is required field</small
+            >
+          </div>
+        </div>
+      </div>
+      <button
+        type="submit"
+        class="btn btn-primary"
+        [disabled]="loginForm.invalid"
+      >
+        Login
+      </button>
+    </form>
+  </div>
+</div>

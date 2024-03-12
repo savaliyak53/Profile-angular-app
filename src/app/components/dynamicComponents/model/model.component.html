@@ -1,5 +1,11 @@
 <div class="container">
-  <div>
-    <div class="bg-white">OPEN Model</div>
+  <div class="d-flex justify-content-center align-items-center">
+    <div class="modal-content">
+      <p>{{ deleteModelMessage }}{{ userToDelete?.name }}</p>
+      <div class="modal-actions">
+        <button class="btn-ok" (click)="confirm(true)">OK</button>
+        <button class="btn-cancel" (click)="confirm(false)">Cancel</button>
+      </div>
+    </div>
   </div>
 </div>

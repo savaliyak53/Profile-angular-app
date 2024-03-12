@@ -9,3 +9,43 @@
   height: 100%;
   z-index: 50;
 }
+
+.d-flex {
+  height: inherit;
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 150px auto;
+  padding: 30px 100px;
+  border: 1px solid #888;
+  border-radius: 5px;
+  width: 40%;
+}
+
+p {
+  margin: 10px 0px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.modal-actions {
+  padding-right: 30px;
+  padding-top: 20px;
+  text-align: right;
+}
+button {
+  border: none;
+  padding: 10px 20px;
+  margin: 0px 5px;
+}
+
+.btn-ok {
+  background-color: #3498db;
+  border: #3498db 3px solid;
+  color: white;
+}
+.btn-cancel {
+  border: #3498db 3px solid;
+  color: #3498db;
+}

@@ -1,0 +1,35 @@
+.form-container {
+  max-width: 600px !;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-top: 50px;
+}
+
+.form-row {
+  width: 100% !important;
+  margin-bottom: 10px;
+}
+
+.form-border {
+  border: 1px solid rgb(91, 92, 90);
+  border-radius: 5px;
+}
+
+input.ng-invalid.ng-touched {
+  border: 2px solid rgb(221, 77, 77) !important;
+}
+
+input.ng-valid.ng-touched {
+  border: 2px solid rgb(41, 46, 44);
+}
+
+input.ng-valid.ng-touched.notRequire {
+  border: 2px solid rgb(223, 230, 227);
+}
+
+small {
+  color: red;
+  font-weight: lighter;
+}

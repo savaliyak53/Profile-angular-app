@@ -4,6 +4,8 @@ import { CommonModule } from '@angular/common';
 import { Component, ViewChild } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { NavigationEnd, Router } from '@angular/router';
+import { SignupService } from '../../service/signup/signup.service';
+import { delay } from 'rxjs';
 
 @Component({
   selector: 'app-signup',
@@ -24,7 +26,7 @@ export class SignupComponent {
   zip: string = '';
   Username: string = '';
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private signupService: SignupService) {}
 
   // it is also use full
   // OnFormSubmitted = (registrationForm: HTMLFormElement) => {
@@ -36,6 +38,15 @@ export class SignupComponent {
   }
 
   OnFormSubmitted = () => {
+    if (this.form?.value) {
+      this.signupService
+        .createUser(this.form.value)
+        .pipe(delay(100))
+        .subscribe((ref) => {
+          console.log(ref);
+        });
+    }
+
     this.form?.reset();
     this.form?.setValue({
       ...this.form.value,

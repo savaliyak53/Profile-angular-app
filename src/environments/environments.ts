@@ -6,3 +6,6 @@ export const environment = {
     fontawesome: 'Font Awesome 6.5.1',
   },
 };
+
+export const jsonPlaceholder = 'https://jsonplaceholder.typicode.com';
+export const dummyJson = 'https://dummyjson.com';
