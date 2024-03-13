@@ -24,7 +24,9 @@ export class SignupComponent {
   regionName: string = '';
   cityName: string = '';
   zip: string = '';
-  Username: string = '';
+  username: string = '';
+  password: string = '';
+  confirmPassword: string = '';
 
   constructor(private router: Router, private signupService: SignupService) {}
 

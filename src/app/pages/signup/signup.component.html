@@ -85,7 +85,7 @@
               ngModel
               required
               #Uname="ngModel"
-              [(ngModel)]="Username"
+              [(ngModel)]="username"
             />
             <button
               type="button"
@@ -97,10 +97,50 @@
             </button>
           </div>
           <div>
-            <span *ngIf="Username"> You entered: {{ Username }}</span>
+            <span *ngIf="username"> You entered: {{ username }}</span>
             <small *ngIf="Uname.invalid && Uname.touched"
               >Username is required field</small
             >
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputPassword">Password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="inputPassword"
+                placeholder="Password"
+                name="password"
+                ngModel
+                required
+                #pword="ngModel"
+                [(ngModel)]="password"
+              />
+            </div>
+            <div>
+              <small *ngIf="pword.invalid && pword.touched"
+                >Password is required field</small
+              >
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputConfirmPassword">Confirm Password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="inputConfirmPassword"
+                placeholder="Confrim Password"
+                name="confirmpassword"
+                ngModel
+                required
+                #cword="ngModel"
+                [(ngModel)]="confirmPassword"
+              />
+            </div>
+            <div>
+              <small *ngIf="cword.invalid && cword.touched"
+                >Confrim password is required field</small
+              >
+            </div>
           </div>
           <div class="form-group col-md-6">
             <label for="inputPhone">Phone</label>
