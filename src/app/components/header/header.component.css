@@ -2,6 +2,10 @@
   background-color: var(--secondary-color);
 }
 
+.active {
+  color: rgb(214, 60, 60) !important;
+}
+
 .logoImage {
   width: 181px;
   height: 40px;

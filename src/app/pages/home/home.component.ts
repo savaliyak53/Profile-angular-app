@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { environment } from '../../../environments/environments';
 import { _Application } from './home';
-import { RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -11,24 +11,32 @@ import { CommonModule } from '@angular/common';
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
+  activeRouter: ActivatedRoute = inject(ActivatedRoute);
+  queryparam: string | undefined;
   name: string = environment.application.name;
   angular: string = environment.application.angular;
   bootstrap: string = environment.application.bootstrap;
   fontawesome: string = environment.application.fontawesome;
+
+  ngOnInit(): void {
+    this.activeRouter.queryParams.subscribe((data) => {
+      this.queryparam = data['product'];
+    });
+  }
 
   items = [
     {
       icon: 'fa-solid fa-file-lines',
       name: 'Landing Page',
       description: 'Css linear-gradient',
-      link: '/landing-page',
+      link: 'landing-page', //relative route for it make it child route of parent
     },
     {
       icon: 'fa-solid fa-address-card',
       name: 'Images Cards',
       description: 'Cascade Cards',
-      link: '/cards',
+      link: 'cards', //Absolute route path
     },
     {
       icon: 'fa-brands fa-bootstrap',

@@ -1,7 +1,13 @@
 <header [ngClass]="'navbar navbar-expand-lg py-4 navbar-dark ' + footerColor">
   <nav class="container" aria-label="Main navigation">
     <div>
-      <a routerLink="/" class="navbar-brand" alt="home">
+      <a
+        [routerLink]="home"
+        class="navbar-brand"
+        alt="home"
+        [routerLinkActive]="activeLink"
+        [queryParams]="{ product: '1231' }"
+      >
         <img
           src="../../../assets/params/images/kishan-logo.png"
           class="logoImage"
@@ -12,7 +18,12 @@
     <div class="nav-bar">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link nga-nav-link" aria-current="page" routerLink="">
+          <a
+            class="nav-link nga-nav-link"
+            aria-current="page"
+            [routerLink]="home"
+            [routerLinkActive]="activeLink"
+          >
             <i class="fab fa-angular me-1"></i> Features</a
           >
         </li>
@@ -20,7 +31,8 @@
           <a
             class="nav-link nga-nav-link"
             aria-current="page"
-            routerLink="/about"
+            [routerLink]="about"
+            [routerLinkActive]="activeLink"
           >
             <i class="far fa-question-circle me-1"></i> About</a
           >
@@ -29,7 +41,8 @@
           <a
             class="nav-link nga-nav-link"
             aria-current="page"
-            routerLink="/contact"
+            [routerLink]="contact"
+            [routerLinkActive]="activeLink"
           >
             <i class="fas fa-envelope me-1"></i>Contact</a
           >
@@ -38,7 +51,8 @@
           <a
             class="nav-link nga-nav-link"
             aria-current="page"
-            href="https://github.com/savaliyak53"
+            [href]="github"
+            [routerLinkActive]="activeLink"
           >
             <i class="fab fa-github me-1"></i> Github
           </a>
@@ -51,7 +65,8 @@
           <a
             class="nav-link nga-nav-link btn"
             aria-current="page"
-            routerLink="/signup"
+            [routerLink]="signup"
+            [routerLinkActive]="activeLink"
           >
             <i class="fas fa-user-plus me-2"></i> Sign up</a
           >
@@ -60,7 +75,8 @@
           <a
             class="nav-link nga-nav-link btn"
             aria-current="page"
-            routerLink="/login"
+            [routerLink]="login"
+            [routerLinkActive]="activeLink"
           >
             <i class="fas fa-sign-in-alt me-2"></i> Login</a
           >
