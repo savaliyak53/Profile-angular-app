@@ -6,7 +6,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { LandingPageComponent } from './pages/application/landing-page/landing-page.component';
 import { UserComponent } from './pages/user/user.component';
 import { routerHref } from '../environments/environments.development';
-import { CrudComponent } from './pages/application/crud/crud.component';
+import { authGuard } from './auth.guard';
 
 export const routes: Routes = [
   { path: '', redirectTo: routerHref.home, pathMatch: 'full' },
@@ -14,13 +14,18 @@ export const routes: Routes = [
   { path: routerHref.contact, component: ContactComponent },
   { path: routerHref.signUp, component: SignupComponent },
   { path: routerHref.logIn, component: LoginComponent },
-  { path: routerHref.user, component: UserComponent },
+  {
+    path: routerHref.user,
+    component: UserComponent,
+    canActivate: [() => true],
+  },
   {
     path: routerHref.crud,
     loadChildren: () =>
       import('./pages/application/crud/crud.module').then(
         (mod) => mod.CrudModule
       ),
+    canActivate: [authGuard],
   },
 
   {
