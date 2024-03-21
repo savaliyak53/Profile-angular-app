@@ -29,17 +29,12 @@ export class LoginComponent {
 
   OnloginFormSubmitted() {
     if (this.loginForm?.value) {
-      this.loginService
-        .loginUser(this.loginForm.value)
-        .pipe(delay(100))
-        .subscribe((ref) => {
-          this.userData = ref;
+      this.userData = this.loginService.loginUser(this.loginForm.value);
 
-          this.userData &&
-            localStorage.setItem('token', JSON.stringify(this.userData));
-          const redirect: string = this.redirectService.getRedirectUrl();
-          this.router.navigateByUrl(redirect);
-        });
+      if (this.userData) {
+        const redirect: string = this.redirectService.getRedirectUrl();
+        this.router.navigateByUrl(redirect);
+      }
     }
   }
 }

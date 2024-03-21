@@ -12,7 +12,6 @@ import {
   activeLink,
 } from '../../../environments/environments.development';
 import { LoginService } from '../../service/login/login.service';
-
 @Component({
   selector: 'app-header',
   standalone: true,

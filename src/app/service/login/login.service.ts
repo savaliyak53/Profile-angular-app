@@ -1,25 +1,30 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { dummyJson } from '../../../environments/environments';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Observable, map } from 'rxjs';
+import { Observable, delay } from 'rxjs';
 import { _UserData } from '../../pages/signup/signup';
 @Injectable({
   providedIn: 'root',
 })
 export class LoginService {
   url = `${dummyJson}/auth/login`;
+  userData: any;
   // private tokenSubject = new BehaviorSubject<string | null>(null);
 
-  // get token$(): Observable<string | null> {
-  //   return this.tokenSubject.asObservable();
-  // }
+  constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient) {
-    // this.tokenSubject.next(localStorage.getItem('token'));
-  }
+  loginUser(data: { username: string; password: string }): _UserData {
+    this.http
+      .post(this.url, data)
+      .pipe(delay(100))
+      .subscribe((ref) => {
+        this.userData = ref;
+      });
 
-  loginUser(data: { username: string; password: string }): Observable<any> {
-    return this.http.post(this.url, data);
+    this.userData &&
+      localStorage.setItem('token', JSON.stringify(this.userData));
+    // this.userData && this.onLoginSuccess.emit(this.userData);
+    return this.userData;
   }
 
   getToken() {
@@ -35,6 +40,7 @@ export class LoginService {
   }
 
   isAuthenticated(): boolean {
+    console.log('Auth token');
     return !!this.getToken();
   }
 }

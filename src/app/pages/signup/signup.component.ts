@@ -3,14 +3,15 @@
 import { CommonModule } from '@angular/common';
 import { Component, ViewChild } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
-import { NavigationEnd, Router } from '@angular/router';
+import { NavigationEnd, Router, RouterLink } from '@angular/router';
 import { SignupService } from '../../service/signup/signup.service';
+import { routerHref } from '../../../environments/environments.development';
 import { delay } from 'rxjs';
 
 @Component({
   selector: 'app-signup',
   standalone: true,
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule, RouterLink],
   templateUrl: './signup.component.html',
   styleUrl: './signup.component.css',
 })
@@ -27,6 +28,7 @@ export class SignupComponent {
   username: string = '';
   password: string = '';
   confirmPassword: string = '';
+  home: string = '/';
 
   constructor(private router: Router, private signupService: SignupService) {}
 
@@ -75,7 +77,8 @@ export class SignupComponent {
     });
   };
 
-  resetForm = () => {
+  resetForm = (): boolean => {
     this.form?.resetForm();
+    return true;
   };
 }

@@ -2,6 +2,9 @@
   <app-header></app-header>
   <div class="app-page">
     <router-outlet></router-outlet>
+    <div class="loader-container" *ngIf="isLoading">
+      <div class="loader"></div>
+    </div>
   </div>
   <app-footer></app-footer>
 </div>

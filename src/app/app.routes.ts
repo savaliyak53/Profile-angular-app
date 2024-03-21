@@ -7,18 +7,43 @@ import { LandingPageComponent } from './pages/application/landing-page/landing-p
 import { UserComponent } from './pages/user/user.component';
 import { routerHref } from '../environments/environments.development';
 import { authGuard } from './auth.guard';
+import { UserServiceService } from './service/user/user-service.service';
+import { inject } from '@angular/core';
 
 export const routes: Routes = [
   { path: '', redirectTo: routerHref.home, pathMatch: 'full' },
-  { path: routerHref.home, component: HomeComponent },
   { path: routerHref.contact, component: ContactComponent },
-  { path: routerHref.signUp, component: SignupComponent },
+  {
+    path: routerHref.home,
+    component: HomeComponent,
+  },
+
+  {
+    path: routerHref.about,
+    loadChildren: () =>
+      import('../app/pages/about/about.routes').then((routes) => routes.routes),
+  },
+
+  //canDeActivedRoute
+  {
+    path: routerHref.signUp,
+    component: SignupComponent,
+    canDeactivate: [
+      (comp: SignupComponent) => {
+        return comp.resetForm();
+      },
+    ], //false lock the route
+  },
+
   { path: routerHref.logIn, component: LoginComponent },
+
+  //resolve Route
   {
     path: routerHref.user,
     component: UserComponent,
-    canActivate: [() => true],
   },
+
+  //canActive
   {
     path: routerHref.crud,
     loadChildren: () =>
@@ -28,15 +53,10 @@ export const routes: Routes = [
     canActivate: [authGuard],
   },
 
-  {
-    path: routerHref.about,
-    loadChildren: () =>
-      import('../app/pages/about/about.routes').then((routes) => routes.routes),
-  },
-
   // child route
   {
     path: routerHref.home,
+    canActivateChild: [() => false],
     children: [
       { path: routerHref.landingPage, component: LandingPageComponent },
     ],

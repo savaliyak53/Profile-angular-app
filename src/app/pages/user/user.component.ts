@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { ModelComponent } from '../../components/dynamicComponents/model/model.component';
 import { _User } from './uset';
 import { UserServiceService } from '../../service/user/user-service.service';
-import { delay } from 'rxjs';
 
 @Component({
   selector: 'app-user',
@@ -21,14 +20,11 @@ export class UserComponent implements OnInit {
   constructor(private userService: UserServiceService) {}
 
   ngOnInit(): void {
-    this.userService
-      .getProduct()
-      .pipe(delay(100))
-      .subscribe((ref) => {
-        if (ref) {
-          this.users = ref;
-        }
-      });
+    this.userService.getProduct().subscribe((ref) => {
+      if (ref) {
+        this.users = ref;
+      }
+    });
   }
 
   deleteUser(user: _User) {

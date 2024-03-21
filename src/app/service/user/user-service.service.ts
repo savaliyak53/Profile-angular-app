@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { _User } from '../../pages/user/uset';
 import { HttpClient } from '@angular/common/http';
 import { jsonPlaceholder } from '../../../environments/environments';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
