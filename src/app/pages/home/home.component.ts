@@ -33,6 +33,12 @@ export class HomeComponent implements OnInit {
       link: 'landing-page', //relative route for it make it child route of parent
     },
     {
+      icon: 'fa-brands fa-readme',
+      name: 'CRUD',
+      description: 'Create Read Update',
+      link: '/crud',
+    },
+    {
       icon: 'fa-solid fa-address-card',
       name: 'Images Cards',
       description: 'Cascade Cards',
@@ -55,12 +61,6 @@ export class HomeComponent implements OnInit {
       name: 'Boxoffice',
       description: 'Movies boxoffice',
       link: '/boxoffice',
-    },
-    {
-      icon: 'fa-brands fa-readme',
-      name: 'CRUD',
-      description: 'Create Read Update',
-      link: '/crud',
     },
     {
       icon: 'fa-solid fa-blender-phone',

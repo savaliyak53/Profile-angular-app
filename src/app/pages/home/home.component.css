@@ -1,6 +1,5 @@
 .container {
-  margin-top: 100px;
-  color: white;
+  color: var(--secondary-text-color);
 }
 
 .nav-link {
@@ -8,7 +7,7 @@
 }
 
 .nav-link:hover {
-  color: var(--secondary-text-color);
+  color: var(--primary-color);
 }
 
 .line {

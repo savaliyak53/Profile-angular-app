@@ -4,9 +4,7 @@ import { FormsModule, NgForm } from '@angular/forms';
 import { LoginService } from '../../service/login/login.service';
 import { _UserData } from '../signup/signup';
 import { Router, Routes } from '@angular/router';
-import { delay } from 'rxjs';
 import { _Login } from '../user/uset';
-import { RedirectService } from '../../service/redirect/redirect.service';
 
 @Component({
   selector: 'app-login',
@@ -21,20 +19,11 @@ export class LoginComponent {
   password: string = '';
   userData: _UserData | undefined;
 
-  constructor(
-    private loginService: LoginService,
-    private router: Router,
-    private redirectService: RedirectService
-  ) {}
+  constructor(private loginService: LoginService, private router: Router) {}
 
   OnloginFormSubmitted() {
     if (this.loginForm?.value) {
-      this.userData = this.loginService.loginUser(this.loginForm.value);
-
-      if (this.userData) {
-        const redirect: string = this.redirectService.getRedirectUrl();
-        this.router.navigateByUrl(redirect);
-      }
+      this.loginService.loginUser(this.loginForm.value);
     }
   }
 }

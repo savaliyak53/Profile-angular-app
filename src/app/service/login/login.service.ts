@@ -1,8 +1,9 @@
-import { EventEmitter, Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { dummyJson } from '../../../environments/environments';
 import { HttpClient } from '@angular/common/http';
-import { Observable, delay } from 'rxjs';
 import { _UserData } from '../../pages/signup/signup';
+import { RedirectService } from '../redirect/redirect.service';
+import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root',
 })
@@ -11,20 +12,24 @@ export class LoginService {
   userData: any;
   // private tokenSubject = new BehaviorSubject<string | null>(null);
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private redirectService: RedirectService,
+    private router: Router
+  ) {}
 
-  loginUser(data: { username: string; password: string }): _UserData {
-    this.http
-      .post(this.url, data)
-      .pipe(delay(100))
-      .subscribe((ref) => {
-        this.userData = ref;
-      });
+  onLoginSuccess: EventEmitter<_UserData> = new EventEmitter<_UserData>();
 
-    this.userData &&
-      localStorage.setItem('token', JSON.stringify(this.userData));
-    // this.userData && this.onLoginSuccess.emit(this.userData);
-    return this.userData;
+  loginUser(data: { username: string; password: string }) {
+    this.http.post(this.url, data).subscribe((ref) => {
+      this.userData = ref;
+      if (ref) {
+        const redirect: string = this.redirectService.getRedirectUrl();
+        localStorage.setItem('token', JSON.stringify(ref));
+        this.onLoginSuccess.emit(this.userData);
+        this.router.navigateByUrl(redirect);
+      }
+    });
   }
 
   getToken() {

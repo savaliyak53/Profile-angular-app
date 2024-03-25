@@ -7,8 +7,6 @@ import { LandingPageComponent } from './pages/application/landing-page/landing-p
 import { UserComponent } from './pages/user/user.component';
 import { routerHref } from '../environments/environments.development';
 import { authGuard } from './auth.guard';
-import { UserServiceService } from './service/user/user-service.service';
-import { inject } from '@angular/core';
 
 export const routes: Routes = [
   { path: '', redirectTo: routerHref.home, pathMatch: 'full' },
@@ -56,7 +54,7 @@ export const routes: Routes = [
   // child route
   {
     path: routerHref.home,
-    canActivateChild: [() => false],
+    // canActivateChild: [() => false]
     children: [
       { path: routerHref.landingPage, component: LandingPageComponent },
     ],

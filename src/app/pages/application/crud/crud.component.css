@@ -2,3 +2,13 @@
   margin-top: 200px;
   background-color: red;
 }
+
+.text-primary {
+  color: var(--secondary-color) !important;
+  font-size: 20px;
+}
+
+.nav-link {
+  color: var(--secondary-color) !important;
+  font-size: 16px;
+}
