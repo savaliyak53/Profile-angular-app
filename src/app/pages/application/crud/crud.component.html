@@ -1,51 +1,58 @@
 <div class="container py-5">
   <div class="row justify-content-center">
     <div class="col-3 d-none d-lg-inline-block d-xl-inline-block">
-      <div class="row">
-        <div class="col mb-2">
-          <span class="ml-4 text-primary"><strong>Features List</strong></span>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col">
-          <div class="card nga-card-menu">
-            <div class="card-header" (click)="handleMovieShow()">
-              <div class="card-item nav-link">
-                <i class="fas fa-film me-2"></i>Products
-              </div>
-            </div>
-            <div>
-              <div class="card-body" *ngIf="movieShowToggle">
-                <ul
-                  class="list-group text-dark"
-                  *ngFor="let item of movieShowList"
-                >
-                  <li class="list-group-item">
-                    <a [routerLink]="item.url" class="nav-link"
-                      ><i [ngClass]="item.icon"></i>{{ item.name }}</a
-                    >
-                  </li>
-                </ul>
-              </div>
-            </div>
+      <div class="pos">
+        <div class="row">
+          <div class="col mb-2">
+            <span class="ml-4 text-primary"
+              ><strong>Features List</strong></span
+            >
           </div>
-
-          <div class="card nga-card-menu">
-            <div class="card-header" (click)="handleGenric()">
-              <div class="card-item nav-link">
-                <i class="fas fa-tools me-2 nav-link"></i>Generics
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="card nga-card-menu">
+              <div class="card-header" (click)="handleMovieShow()">
+                <div class="card-item nav-link">
+                  <i class="fas fa-film me-2"></i>Products
+                </div>
+              </div>
+              <div>
+                <div class="card-body" *ngIf="movieShowToggle">
+                  <ul
+                    class="list-group text-dark"
+                    *ngFor="let item of movieShowList"
+                  >
+                    <li class="list-group-item">
+                      <a [routerLink]="item.url" class="nav-link"
+                        ><i [ngClass]="item.icon"></i>{{ item.name }}</a
+                      >
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
-            <div>
-              <div class="card-body" *ngIf="genericToggle">
-                <ul class="list-group text-dark" *ngFor="let item of Generics">
-                  <li class="list-group-item">
-                    <a [routerLink]="item.url" class="nav-link">
-                      <i [ngClass]="item.icon"></i>
-                      {{ item.name }}
-                    </a>
-                  </li>
-                </ul>
+
+            <div class="card nga-card-menu">
+              <div class="card-header" (click)="handleGenric()">
+                <div class="card-item nav-link">
+                  <i class="fas fa-tools me-2 nav-link"></i>Generics
+                </div>
+              </div>
+              <div>
+                <div class="card-body" *ngIf="genericToggle">
+                  <ul
+                    class="list-group text-dark"
+                    *ngFor="let item of Generics"
+                  >
+                    <li class="list-group-item">
+                      <a [routerLink]="item.url" class="nav-link">
+                        <i [ngClass]="item.icon"></i>
+                        {{ item.name }}
+                      </a>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
@@ -60,3 +67,4 @@
     </div>
   </div>
 </div>
+x

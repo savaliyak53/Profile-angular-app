@@ -7,12 +7,12 @@ export interface IMovieShowList {
 
 export interface IProducts {
   limit: number;
-  products: product[];
+  products: IProduct[];
   skip: number;
   total: number;
 }
 
-export interface product {
+export interface IProduct {
   id: number;
   title: string;
   description: string;

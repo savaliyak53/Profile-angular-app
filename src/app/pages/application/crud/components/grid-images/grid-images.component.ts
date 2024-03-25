@@ -1,5 +1,5 @@
 import { Component, Input, OnDestroy } from '@angular/core';
-import { IProducts, product } from '../../type';
+import { IProducts, IProduct } from '../../type';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 
@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
   styleUrl: './grid-images.component.css',
 })
 export class GridImagesComponent {
-  @Input() items: product[];
+  @Input() items: IProduct[];
   @Input() link: string;
 
   constructor(private router: Router) {}

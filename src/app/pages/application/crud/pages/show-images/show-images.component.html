@@ -1,2 +1,8 @@
-<app-grid-images [items]="products.products" [link]="link"></app-grid-images>
-<div>{{ products.limit }}</div>
+<app-search-bar
+  [placeholder]="searchPlaceholeder"
+  [icon]="'fa fa-search'"
+  [itemsCount]="itemsCount"
+  [totalItem]="products.length"
+  (search)="OnSearch($event)"
+></app-search-bar>
+<app-grid-images [items]="products" [link]="link"></app-grid-images>

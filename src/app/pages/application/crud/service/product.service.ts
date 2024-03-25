@@ -11,6 +11,6 @@ export class ProductService {
   constructor(private http: HttpClient) {}
 
   getAllProduct(): Observable<any> {
-    return this.http.get(`${this.url}/products`);
+    return this.http.get(`${this.url}/products?limit=100&skip=0`);
   }
 }
